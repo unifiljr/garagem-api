@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GaragemAPI - Documentação do Projeto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            padding-bottom: 60px;
+        }
+        .hero {
+            background-color: #020617;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .card-custom {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        img.diagrama {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 1px solid #334155;
+        }
+        .btn-links {
+            border-radius: 10px;
+            margin: 5px;
+        }
+        h2 {
+            border-bottom: 2px solid #334155;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>🚗 AutoDealer</h1>
+        <p class="text-secondary fs-5">Sistema de gerenciamento de estoque de veículos</p>
+        <div class="mt-4">
+            <a href="https://garagem-api-bbqq.onrender.com/dashboard.html" class="btn btn-danger btn-links" target="_blank">Acessar Aplicação</a>
+            <a href="https://github.com/unifiljr/garagem-api" class="btn btn-outline-light btn-links" target="_blank">Repositório no GitHub</a>
+        </div>
+    </div>
+
+    <div class="section">
+
+        <div class="card-custom">
+            <h2>Sobre o Projeto</h2>
+            <p>
+                O GaragemAPI é um sistema web desenvolvido para a disciplina de Extensão VII, com o objetivo de gerenciar o estoque de veículos de uma garagem de forma simples e eficiente, a aplicação 
+                permite cadastrar, listar, buscar, editar, vender e excluir veículos, centralizando as principais operações do controle de estoque em uma única plataforma.
+                O projeto teve início de 2026 e foi desenvolvido de forma incremental, com entregas periódicas envolvendo documentação, levantamento de requisitos, modelagem e implementação das funcionalidades.
+            </p>
+            <p>
+                <strong>Tecnologias utilizadas:</strong> C# / ASP.NET Core, Entity Framework Core,
+                SQLite, HTML/CSS/JavaScript, Bootstrap, xUnit (testes de backend), Cypress (testes E2E).
+            </p>
+        </div>
+
+        <div class="card-custom">
+            <h2>Diagrama de Casos de Uso</h2>
+            <p>Representa as principais interações do usuário com o sistema.</p>
+            <img src="imagens/casos-de-uso.png" alt="Diagrama de Casos de Uso" class="diagrama">
+        </div>
+
+        <div class="card-custom">
+            <h2>Diagrama de Classes</h2>
+            <p>Estrutura das classes e seus relacionamentos no sistema.</p>
+            <img src="imagens/diagrama-classe.png" alt="Diagrama de Classes" class="diagrama">
+        </div>
+
+        <div class="card-custom">
+            <h2>Diagrama de Entidade-Relacionamento (DER)</h2>
+            <p>Modelagem do banco de dados utilizado pelo sistema.</p>
+            <img src="imagens/der.png" alt="Diagrama de Entidade-Relacionamento" class="diagrama">
+        </div>
+
+        <div class="card-custom">
+            <h2>Prototipação das Telas</h2>
+            <p>Protótipos iniciais das telas do sistema, usados como base para o desenvolvimento.</p>
+            <img src="imagens/prototipacao-telas.png" alt="Prototipação das Telas" class="diagrama">
+        </div>
+
+        <div class="card-custom text-center">
+            <h2>Links do Projeto</h2>
+            <a href="https://garagem-api-bbqq.onrender.com/dashboard.html" class="btn btn-danger btn-links" target="_blank">Aplicação Hospedada</a>
+            <a href="https://github.com/unifiljr/garagem-api" class="btn btn-outline-light btn-links" target="_blank">Código no GitHub</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

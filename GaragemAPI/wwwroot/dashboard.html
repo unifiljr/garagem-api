@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Garagem</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+        }
+
+        .sidebar {
+            height: 100vh;
+            width: 220px;
+            position: fixed;
+            background-color: #020617;
+            padding: 20px;
+        }
+
+            .sidebar h4 {
+                margin-bottom: 30px;
+            }
+
+            .sidebar a {
+                display: block;
+                color: #94a3b8;
+                padding: 10px;
+                text-decoration: none;
+                border-radius: 8px;
+            }
+
+                .sidebar a:hover {
+                    background-color: #1e293b;
+                    color: white;
+                }
+
+        .content {
+            margin-left: 240px;
+            padding: 20px;
+        }
+
+        .card-custom {
+            background-color: #1e293b;
+            border: none;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .btn-custom {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h4>🚗 AutoDealer</h4>
+
+        <a href="dashboard.html">Painel</a>
+        <a href="cadastro.html">Cadastrar Veículo</a>
+        <a href="lista.html">Lista de Veículos</a>
+        <a href="fipe.html">Consulta FIPE</a>
+
+    </div>
+
+    <div class="content">
+
+        <h3>Bem-vindo 👋</h3>
+        <p class="text-secondary">Resumo da sua garagem</p>
+
+        <!-- 📊 CARDS -->
+        <div class="row mt-4">
+            <div class="col">
+                <div class="card-custom">
+                    <h6>Total</h6>
+                    <h3 id="total">0</h3>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card-custom">
+                    <h6>Disponíveis</h6>
+                    <h3 id="disp">0</h3>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card-custom">
+                    <h6>Vendidos</h6>
+                    <h3 id="vend">0</h3>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card-custom">
+                    <h6>Valor Total</h6>
+                    <h3>R$ <span id="valor">0</span></h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🚀 AÇÕES -->
+        <div class="row mt-4">
+            <div class="col">
+                <div class="card-custom">
+                    <h5>➕ Cadastrar Veículo</h5>
+                    <p class="text-secondary">Adicionar novo carro</p>
+                    <a href="cadastro.html" class="btn btn-danger btn-custom">Cadastrar</a>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card-custom">
+                    <h5>🚗 Ver Veículos</h5>
+                    <p class="text-secondary">Gerenciar estoque</p>
+                    <a href="lista.html" class="btn btn-primary btn-custom">Ver Lista</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+const api = "https://localhost:7001/api/carros";
+
+async function carregar() {
+    const res = await fetch(api);
+    const carros = await res.json();
+
+    document.getElementById("total").innerText = carros.length;
+    document.getElementById("disp").innerText = carros.filter(c => c.status === "Disponivel").length;
+    document.getElementById("vend").innerText = carros.filter(c => c.status === "Vendido").length;
+
+    let total = carros.reduce((s, c) => s + c.preco, 0);
+    document.getElementById("valor").innerText = total.toFixed(2);
+}
+
+carregar();
+    </script>
+
+</body>
+</html>

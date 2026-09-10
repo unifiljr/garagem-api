@@ -115,7 +115,7 @@ function renderizar(lista) {
 
     lista.forEach(c => {
 
-        let statusClass = c.status === "Disponivel" ? "disponivel" : "vendido";
+        let statusClass = c.statusDescricao === "Disponivel" ? "disponivel" : "vendido";
 
         html += `
         <tr>

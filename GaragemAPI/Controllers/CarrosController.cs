@@ -46,6 +46,23 @@
             return Ok(carro);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] Carro carro)
+        {
+            var carroExistente = _context.Carros.Find(id);
+            if (carroExistente == null) return NotFound();
+
+            carroExistente.Marca = carro.Marca;
+            carroExistente.Modelo = carro.Modelo;
+            carroExistente.Ano = carro.Ano;
+            carroExistente.Preco = carro.Preco;
+            carroExistente.StatusId = carro.StatusId;
+
+            _context.SaveChanges();
+
+            return Ok(carroExistente);
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
